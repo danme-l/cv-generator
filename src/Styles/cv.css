@@ -1,0 +1,33 @@
+/* Styles for the resume section */
+#CVBody {
+    margin: 20px;
+    height: 90vh;
+    width: 140vh;
+    border: 5px solid black;
+    box-shadow: 10px 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+#cvContent {
+    margin: 20px;
+    flex-grow: 3;
+}
+
+#cvInfo {
+    margin: 20px;
+    flex-grow: 1;
+}
+
+.contact-subsection {
+    display: flex;
+    flex-direction: row;
+}
+
+.editable:hover {
+    border: 2px solid black;
+}
+
+.indentedSublist {
+    margin: 30px;
+}
