@@ -1,6 +1,6 @@
 # CV Generator React App for the Odin Project 
 
-Work in progress. First hour of coding has been done - I've got most of the components set up but nothing is really working quite yet. Very little functionality has actually been implemented and the little that has doesn't work well.
+Work in progress. Component structure is all set up. Need to implement editing ability for the CV Sections.
 
 [Link to the Prompt](https://www.theodinproject.com/lessons/node-path-javascript-cv-application)
 
