@@ -1,26 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
 import '../Styles/cv.css';
+import EdExBullet from "./EdExBullet";
 
-class Education extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        }
-    }
+class Education extends React.Component {
 
     render() {
         return (
-            <div id="EducationSection">
-                <h1 className="editable">Education</h1>
+            <div id="EducationSection" className="editable">
+                <h1>Education</h1>
                 <hr />
                 <div className="indentedSublist">
-                    <h3>Education 1 will go here</h3>
-                    <p>Education 1 will go here</p>
-                    <h3>Education 2 will go here</h3>
-                    <p>Education 2 will go here</p>
-                    <h3>Education 3 will go here</h3>
-                    <p>Education 3 will go here</p>
+                    {this.props.education.map((ed, idx) => {
+                        return <EdExBullet
+                            key={idx}
+                            name={ed[0]}
+                            sub={ed[1]}
+                            start={ed[2]}
+                            end={ed[3]}
+                            description={ed[4]}
+                        />
+                    })}
                 </div>
             </div>
         )

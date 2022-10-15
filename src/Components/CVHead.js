@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import '../Styles/cv.css';
 
 class CVHead extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            name: '',
-            description: '',
-        }
+
+    edit() {
+        return '';
     }
 
     render() {

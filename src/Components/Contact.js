@@ -4,29 +4,21 @@ import { BsPhone } from 'react-icons/bs';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            location: '',
-            phone: '',
-            email: '',
-        }
-    }
 
     render() {
         return (
             <div id="contactSection">
                 <div className="contact-subsection editable">
                     <ImLocation size='33px' /> 
-                    <p>Location</p>
+                    <p>{this.props.contact.location}</p>
                 </div>
                 <div className="contact-subsection editable">
                     <BsPhone size='33px' /> 
-                    <p>Phone</p>
+                    <p>{this.props.contact.phone}</p>
                 </div>
                 <div className="contact-subsection editable">
                     <MdOutlineAlternateEmail size='33px' /> 
-                    <p>Email</p>
+                    <p>{this.props.contact.email}</p>
                 </div>
                 
             </div>

@@ -1,7 +1,25 @@
 /* Styles for the resume section */
-#CVBody {
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.top-btn {
+    min-width: 9%;
+    margin: 1%;
+}
+
+#cv-body {
     margin: 20px;
-    height: 90vh;
+    min-height: 90vh;
     width: 140vh;
     border: 5px solid black;
     box-shadow: 10px 10px;
@@ -9,19 +27,28 @@
     flex-direction: row;
 }
 
-#cvContent {
+#cv-content {
     margin: 20px;
     flex-grow: 3;
 }
 
-#cvInfo {
+#cv-info {
     margin: 20px;
     flex-grow: 1;
+}
+
+#img-box {
+    margin-bottom: 25px;
+    max-width: 300px;
 }
 
 .contact-subsection {
     display: flex;
     flex-direction: row;
+}
+
+.editable {
+    padding: 1%;
 }
 
 .editable:hover {
