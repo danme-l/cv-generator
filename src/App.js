@@ -1,7 +1,7 @@
 import './Styles/App.css';
 
 import CV from './Components/CV.js';
-import Instructions from './Components/Instructions.js';
+import Util from './Components/Util.js';
 import Header from './HeadFoot/Header';
 import Footer from './HeadFoot/Footer';
 
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <div id="body">
         <CV />
-        <Instructions />
+        <Util />
       </div>
       <Footer />
     </div>

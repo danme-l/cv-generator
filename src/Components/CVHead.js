@@ -4,7 +4,7 @@ import '../Styles/cv.css';
 class CVHead extends Component {
 
     edit() {
-        return '';
+        return <div>Test div for the edit modal</div>;
     }
 
     render() {
