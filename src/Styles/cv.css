@@ -75,6 +75,11 @@ main {
     visibility: visible;
 }
 
+.modalFormEl {
+    padding: 5px;
+    margin: 2px;
+}
+
 .indentedSublist {
     margin: 30px;
 }
