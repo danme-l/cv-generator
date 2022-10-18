@@ -34,7 +34,6 @@ class CVHead extends Component {
         this.setState({
             name: e.target.value,
         });
-        console.log(e.target.value)
     }
 
     handleDescChange(e) {
@@ -48,10 +47,10 @@ class CVHead extends Component {
             <div id="CVHeaderSection" className="editable">
                 <h1>{this.state.name}</h1>
                 <p>{this.state.description}</p>
-                <button onClick={this.handleOpenModal}>Edit</button>
+                <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
                 <ReactModal
                     isOpen={this.state.showModal}
-                    contentLabel="Test Modal"
+                    contentLabel="Header Modal"
                     ariaHideApp={false}
                     >
                         <h3>Name & Description</h3>
@@ -62,7 +61,7 @@ class CVHead extends Component {
                             <input type="text" name="desc" onChange={this.handleDescChange}></input>
                             <button type="submit" onClick={this.handleEdits}>Submit</button>
                         </form>
-                        <button onClick={this.handleCloseModal}>Close Test Modal</button>
+                        <button onClick={this.handleCloseModal}>Close</button>
                 </ReactModal>
             </div>
         )

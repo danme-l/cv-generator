@@ -2,17 +2,16 @@ import React, { Component } from "react";
 import { ImLocation } from 'react-icons/im';
 import { BsPhone } from 'react-icons/bs';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
+import ReactModal from 'react-modal';
 
 class Contact extends Component {
     constructor(props) {
         super(props);
         this.state = {
             showModal: false,
-            contact: {
-                location: 'Toronto, ON',
-                phone: '(123) 123-4567',
-                email:'example@email.com',
-            },
+            location: 'Toronto, ON',
+            phone: '(123) 123-4567',
+            email:'example@email.com',
         }
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -31,35 +30,59 @@ class Contact extends Component {
         this.setState({ showModal: false });
     }
 
-    handleLocationChange() {
-
+    handleLocationChange(e) {
+        this.setState({
+            location: e.target.value,
+        });
     }
-    handlePhoneChange() {
-
+    handlePhoneChange(e) {
+        this.setState({
+            phone: e.target.value,
+        })
     }
-    handleEmailChange() {
-
+    handleEmailChange(e) {
+        this.setState({
+            email: e.target.value,
+        })
     }
-    handleEdits() {
-
+    handleEdits(e) {
+        e.preventDefault();
+        this.handleCloseModal();
     }
 
     render() {
         return (
-            <div id="contactSection">
-                <div className="contact-subsection editable">
+            <div id="contactSection" className="editable">
+                <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
+                <div className="contact-subsection">
                     <ImLocation size='33px' /> 
-                    <p>{this.state.contact.location}</p>
+                    <p>{this.state.location}</p>
                 </div>
-                <div className="contact-subsection editable">
+                <div className="contact-subsection">
                     <BsPhone size='33px' /> 
-                    <p>{this.state.contact.phone}</p>
+                    <p>{this.state.phone}</p>
                 </div>
-                <div className="contact-subsection editable">
+                <div className="contact-subsection">
                     <MdOutlineAlternateEmail size='33px' /> 
-                    <p>{this.state.contact.email}</p>
-                </div>
-                
+                    <p>{this.state.email}</p>
+                </div>  
+                <ReactModal
+                    isOpen={this.state.showModal}
+                    contentLabel="Contact Modal"
+                    ariaHideApp={false}
+                    >
+                        <h3>Name & Description</h3>
+                        <form>
+                            <label htmlFor="name">Location:</label>
+                            <input type="text" name="name" onChange={this.handleLocationChange}></input>
+                            <label htmlFor="desc">Phone:</label>
+                            <input type="text" name="desc" onChange={this.handlePhoneChange}></input>
+                            <label htmlFor="desc">email:</label>
+                            <input type="text" name="desc" onChange={this.handleEmailChange}></input>
+                            <button type="submit" onClick={this.handleEdits}>Submit</button>
+                        </form>
+                        <button onClick={this.handleCloseModal}>Close Test Modal</button>
+                </ReactModal>              
             </div>
         )
     }

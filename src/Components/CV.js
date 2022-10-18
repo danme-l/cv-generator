@@ -28,7 +28,8 @@ class CV extends Component {
         this.clear =  this.clear.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
-        this.renderEditForm = this.renderEditForm.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleChangePicture = this.handleChangePicture.bind(this);
     }
 
     handleOpenModal () {
@@ -81,11 +82,15 @@ class CV extends Component {
         })
     }
 
-    onSectionEdit() {
+    handleChange(e) {
+        this.setState({
+            imgAdr: e.target.value,
+        })
     }
 
-    renderEditForm() {
-        return <div>This will be from the edit form</div>
+    handleChangePicture(e) {
+        e.preventDefault();
+        this.handleCloseModal();
     }
 
     render() {
@@ -99,7 +104,10 @@ class CV extends Component {
                 
                 <div id="cv-body">
                     <div id="cv-info">
-                        <img id="img-box" className="editable" src={this.state.imgAdr} alt="stock headshot"/>
+                        <div id="img-box" className="editable">
+                            <img id="headshot-img" src={this.state.imgAdr} alt="stock headshot"/>
+                            <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
+                        </div>
                         <Contact 
                             contact={this.state.contact}
                             />
@@ -124,8 +132,11 @@ class CV extends Component {
                     isOpen={this.state.showModal}
                     contentLabel="Test Modal"
                     >
-                        {this.renderEditForm()}
-                        <div> Test initial modal state </div>
+                        <form>
+                            <label htmlFor="imgurl">Img URL:</label>
+                            <input type="text" name="imgurl" onChange={this.handleChange}></input><br />
+                            <button type="submit" onClick={this.handleChangePicture}>Submit</button>
+                        </form>
                         <button onClick={this.handleCloseModal}>Close Test Modal</button>
                 </ReactModal>
             </main>
