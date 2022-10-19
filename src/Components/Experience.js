@@ -21,7 +21,7 @@ class Experience extends Component {
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleAddJobTitle = this.handleAddJobTitle.bind(this);
-        this.handleAddJobCompany = this.handleAddJobTitle.bind(this);
+        this.handleAddJobCompany = this.handleAddJobCompany.bind(this);
         this.handleAddJobLocation = this.handleAddJobLocation.bind(this);
         this.handleAddJobStart = this.handleAddJobStart.bind(this);
         this.handleAddJobEnd = this.handleAddJobEnd.bind(this);
@@ -63,7 +63,6 @@ class Experience extends Component {
 
     // new job related functions
     handleAddJobTitle(e) {
-        console.log(this.state)
         this.setState({
             newJobTitle: e.target.value,
         });
@@ -140,17 +139,17 @@ class Experience extends Component {
                         <h3>Add Experience</h3>
                         <form>
                             <label className="modalFormEl" htmlFor="title">Job Title:</label>
-                            <input className="modalFormEl" defaultValue="Junior Data Scientist" type="text" name="title" onChange={this.handleAddJobTitle}></input>
-                            <label className="modalFormEl" htmlFor="company">Company:</label>
-                            <input className="modalFormEl" defaultValue="Canada Revenue Agency" type="text" name="company" onChange={this.handleAddJobCompany}></input> <br />
-                            <label className="modalFormEl" htmlFor="company">Location:</label>
-                            <input className="modalFormEl" defaultValue="Ottawa" type="text" name="company" onChange={this.handleAddJobLocation}></input> <br />
+                            <input className="modalFormEl" type="text" name="title" onChange={this.handleAddJobTitle}></input>
+                            <label className="modalFormEl" htmlFor="company">Company: </label>
+                            <input className="modalFormEl" type="text" name="company" onChange={this.handleAddJobCompany}></input> <br />
+                            <label className="modalFormEl" htmlFor="location">Location:</label>
+                            <input className="modalFormEl" type="text" name="location" onChange={this.handleAddJobLocation}></input> <br />
                             <label className="modalFormEl" htmlFor="start">Start Date:</label>
-                            <input className="modalFormEl" defaultValue="September 2020" type="text" name="start" onChange={this.handleAddJobStart}></input>
+                            <input className="modalFormEl" type="text" name="start" onChange={this.handleAddJobStart}></input>
                             <label className="modalFormEl" htmlFor="end">End Date:</label>
-                            <input className="modalFormEl" defaultValue="Current" type="text" name="end" onChange={this.handleAddJobEnd}></input> <br />
+                            <input className="modalFormEl" type="text" name="end" onChange={this.handleAddJobEnd}></input> <br />
                             <label className="modalFormEl" htmlFor="desc">Description of Duties & Responsibilities</label>
-                            <input className="modalFormEl" defaultValue="Nothing Super Fun" style={{height:'60px', width:'400px',}} type="text" name="desc" onChange={this.handleAddJobDescription}></input> <br />
+                            <input className="modalFormEl" style={{height:'60px', width:'400px',}} type="text" name="desc" onChange={this.handleAddJobDescription}></input> <br />
                             <button type="submit" onClick={this.handleAddJob}>Submit</button>
                         </form>
                         <button onClick={this.handleCloseModal}>Close</button>

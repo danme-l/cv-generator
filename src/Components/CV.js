@@ -99,7 +99,6 @@ class CV extends Component {
                 <div id="btn-box">
                     <button className="top-btn" id="donkey-btn" onClick={this.loadDonkey} >Load The Donkey</button>
                     <button className="top-btn" id="clear-btn" onClick={this.clear} >Clear</button>
-                    <button className="top-btn" onClick={this.handleOpenModal} >Modal Test</button>
                 </div>
                 
                 <div id="cv-body">
