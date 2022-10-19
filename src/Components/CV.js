@@ -16,9 +16,9 @@ class CV extends Component {
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             imgAdr: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             contact: {
-                location: '',
-                phone: '',
-                email:'',
+                location: 'Toronto',
+                phone: '(613) 123-4567',
+                email: 'sample@protonmail.com',
             },
             experience: [],
             education: [],
@@ -46,9 +46,9 @@ class CV extends Component {
             description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
             imgAdr: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             contact: {
-                location: '',
-                phone: '',
-                email:'',
+                location: 'Toronto',
+                phone: '+1 (613) 878-0183',
+                email: 'd-dksa@protonmail.com',
             },
             experience: [],
             education: [],
@@ -67,12 +67,40 @@ class CV extends Component {
                 email: "donkey@everesttours.com"
             },
             experience: [
-                ["Himalayas","Chief Donkey","2018","Current","Lead Donkey on the team. Entrusted with the Sherpa's own possessions. Carried other valuables as needed"],
-                ["Himalayas","Bag Carrier (Pony Intern)","2017", "2018","Year long Donkey Internship at Nepal Donkey University. Carried bags for white westerners doing base camp treks for their instagram"]
+                {
+                    title:"Chief Donkey",
+                    company: "Everest Tours",
+                    location: "Himalayas",
+                    start:"2018",
+                    end: "Current",
+                    description: "Lead Donkey on the team. Entrusted with the Sherpa's own possessions. Carried other valuables as needed"
+                },
+                {
+                    title:"Bag Carrier (Pony Intern)",
+                    company: "Everest Tours",
+                    location: "Himalayas",
+                    start:"2017",
+                    end: "2018",
+                    description: "Year long Donkey Internship at Nepal Donkey University. Carried bags for white westerners doing base camp treks for their instagram"
+                },
             ],
             education: [
-                ["Harvard University - Donkey College", "BA Donkey Studies", "2012", "2016", "Major in Donkey Studies. Carried lots of bags"],
-                ["Nepal Donkey University", "MA Donkey Studies", "2016", "2018", "Masters degree in Donkey Studies. Finished with highest honours"],
+                {
+                    school: "Harvard University - Donkey College",
+                    study: "BA Donkey Studies",
+                    location: "Boston",
+                    start:"2012",
+                    end: "2016",
+                    description: "Major in Donkey Studies. Carried lots of bags"
+                },
+                {
+                    school: "Nepal Donkey University",
+                    study: "MA Donkey Studies",
+                    location: "Himalayas",
+                    start:"2016",
+                    end: "2018",
+                    description: "Masters degree in Donkey Studies. Finished with highest honours"
+                },
             ],
             skills: [
                 "Carrying Bags",

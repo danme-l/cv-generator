@@ -14,7 +14,7 @@ class Experience extends Component {
             newJobStart: '',
             newJobEnd:'',
             newJobDescription:'',
-            expList: [],
+            expList: this.props.experience,
         }
 
         // bindings
@@ -106,6 +106,12 @@ class Experience extends Component {
             start: this.state.newJobStart,
             end: this.state.newJobEnd,
             description: this.state.newJobDescription,
+        }
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        return {
+            expList: props.experience,
         }
     }
 

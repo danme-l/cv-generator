@@ -9,9 +9,9 @@ class Contact extends Component {
         super(props);
         this.state = {
             showModal: false,
-            location: 'Toronto, ON',
-            phone: '(123) 123-4567',
-            email:'example@email.com',
+            location: props.contact.location,
+            phone: props.contact.phone,
+            email: props.contact.email,
         }
 
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -49,6 +49,14 @@ class Contact extends Component {
         e.preventDefault();
         this.handleCloseModal();
     }
+
+    static getDerivedStateFromProps(props, state) {
+        return {
+            location: props.contact.location,
+            phone: props.contact.phone,
+            email: props.contact.email,
+        }
+     }
 
     render() {
         return (

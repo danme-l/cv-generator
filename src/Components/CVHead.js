@@ -7,8 +7,8 @@ class CVHead extends Component {
         super(props);
         this.state = {
             showModal: false,
-            name: "Enter Name",
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+            name: this.props.name,
+            description: this.props.description,
         }
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -41,6 +41,13 @@ class CVHead extends Component {
             description: e.target.value,
         });
     }
+
+    static getDerivedStateFromProps(props, state) {
+        return {
+            name: props.name,
+            description: props.description,
+        }
+     }
 
     render() {
         return (

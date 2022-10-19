@@ -7,7 +7,7 @@ class Skills extends React.Component {
         this.state = {
             showModal: false,
             newSkill: '',
-            skills: [],
+            skills: this.props.skills,
         }
 
         // bindings
@@ -44,6 +44,12 @@ class Skills extends React.Component {
         });
     };
 
+    static getDerivedStateFromProps(props, state) {
+        return {
+            skills: props.skills,
+        }
+     }
+
     
     render() {
         return (
@@ -54,7 +60,7 @@ class Skills extends React.Component {
                 </div>            
                 <ul>
                     {this.state.skills.map((skill, idx) => {
-                        return <li>{skill}</li>;
+                        return <li key={idx}>{skill}</li>;
                     })}
                 </ul>
                 <ReactModal
@@ -65,7 +71,7 @@ class Skills extends React.Component {
                         <h3>Add Skills</h3>
                         <ul>
                             {this.state.skills.map((skill, idx) => {
-                                return <li>{skill}</li>;
+                                return <li key={idx}>{skill}</li>;
                             })}
                         </ul>
                         <form>
