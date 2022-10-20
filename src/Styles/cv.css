@@ -1,23 +1,30 @@
 /* Styles for the resume section */
 main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#btn-box {
+    width: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: lightgray;
 }
 
-.top-btn {
-    min-width: 9%;
-    margin: 1%;
+#side-box {
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+}
+
+#side-btn {
+    width: 10rem;
 }
 
 #cv-body {
+    background-color: white;
     margin: 20px;
     min-height: 90vh;
     width: 140vh;
@@ -62,22 +69,27 @@ main {
     margin: 5px;
 }
 
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+.editEdExBtn {
+    height: 2em;
+}
+
 .editable:hover {
     border: 2px solid black;
 }
 
+/* make the edit buttons visible on hover */
 .editable:hover .editSectionBtn {
     visibility: visible;
 }
 
-/* to handle the picture case */
+/* to handle the picture case, which is a sibling instead of a descendant */
 .editable:hover + .editSectionBtn {
     visibility: visible;
-}
-
-.modalFormEl {
-    padding: 5px;
-    margin: 2px;
 }
 
 .indentedSublist {
@@ -88,4 +100,36 @@ main {
     display: flex;
     flex: row;
     justify-content: space-between;
+}
+
+/* Styling for Edit Modals */
+.editModal {
+    background-color: lightgray;
+    padding: 2%;
+    margin: 10%;
+    border: 2px solid darkslategray;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modalFormEl {
+    padding: 5px;
+    margin: 2px;
+}
+
+.ReactModal__Overlay {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+    opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+    opacity: 0;
+}
+
+.closeModalBtn{
+    height: 2em;
 }

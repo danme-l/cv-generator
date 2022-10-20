@@ -37,6 +37,7 @@
     ]
   },
   "devDependencies": {
-    "react-modal": "^3.15.1"
+    "react-modal": "^3.15.1",
+    "react-to-print": "^2.14.7"
   }
 }

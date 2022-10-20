@@ -27,7 +27,8 @@ class Education extends Component {
         this.handleAddEdEnd = this.handleAddEdEnd.bind(this);
         this.handleAddEdDescription = this.handleAddEdDescription.bind(this);
         this.handleAddEd = this.handleAddEd.bind(this);
-        this.getNewEd = this.getNewEd.bind(this);
+        this.loadSample = this.loadSample.bind(this);
+        this.clear = this.clear.bind(this);
     }
 
     // opening and closing the modal
@@ -98,21 +99,39 @@ class Education extends Component {
         });
     };
 
-    getNewEd() {
-        return {
-            school: this.state.newEdSchool,
-            study: this.state.newEdStudy,
-            location: this.state.newEdLocation,
-            start: this.state.newEdStart,
-            end: this.state.newEdEnd,
-            description: this.state.newEdDescription,
-        }
+    loadSample() {
+        this.setState({
+            edList: [
+                {
+                    school: "Undergraduate University",
+                    study: "BSc in Undergrad Studies",
+                    location: "Toronto",
+                    start:"2012",
+                    end: "2016",
+                    description: "Majored in Undergrad Studies. Graduated Cumma Sum Laude"
+                },
+                {
+                    school: "Graduate University",
+                    study: "MA Graduate Studies",
+                    location: "Tokyo",
+                    start:"2016",
+                    end: "2018",
+                    description: "Masters degree in Graduate Studies. Thesis title: 'A Study on Studying Studies as a Graduate Studier'. Graduated Phi Beta Kappa."
+                },
+            ],
+        })
     }
 
-    static getDerivedStateFromProps(props, state) {
-        return {
-            edList: props.education,
-        }
+    clear() {
+        this.setState({
+            edList: [],
+            newEdSchool: '',
+            newEdStudy: '',
+            newEdLocation:'',
+            newEdStart: '',
+            newEdEnd:'',
+            newEdDescription:'',
+        })
     }
 
     render() {
@@ -120,7 +139,11 @@ class Education extends Component {
             <div id="EducationSection" className="editable">
                 <div className="cvSectionHead">
                     <h1>Education</h1>
-                    <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
+                    <div className="buttonBox">
+                        <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
+                        <button className="editSectionBtn" onClick={this.loadSample}>Sample</button>
+                        <button className="editSectionBtn" onClick={this.clear}>Clear</button>
+                    </div>
                 </div>
                 <hr />
                 <div className="indentedSublist">
@@ -139,26 +162,29 @@ class Education extends Component {
                 </div>
                 <ReactModal
                     isOpen={this.state.showModal}
-                    contentLabel="Header Modal"
+                    contentLabel="Education Modal"
                     ariaHideApp={false}
+                    className={"editModal"}
                     >
-                        <h3>Add Education</h3>
-                        <form>
-                            <label className="modalFormEl" htmlFor="school">School:</label>
-                            <input className="modalFormEl" type="text" name="school" onChange={this.handleAddEdSchool}></input>
-                            <label className="modalFormEl" htmlFor="study">Field pf study: </label>
-                            <input className="modalFormEl" type="text" name="study" onChange={this.handleAddEdStudy}></input> <br />
-                            <label className="modalFormEl" htmlFor="location">Location:</label>
-                            <input className="modalFormEl" type="text" name="location" onChange={this.handleAddEdLocation}></input> <br />
-                            <label className="modalFormEl" htmlFor="start">Start Date:</label>
-                            <input className="modalFormEl" type="text" name="start" onChange={this.handleAddEdStart}></input>
-                            <label className="modalFormEl" htmlFor="end">End Date:</label>
-                            <input className="modalFormEl" type="text" name="end" onChange={this.handleAddEdEnd}></input> <br />
-                            <label className="modalFormEl" htmlFor="desc">Description of Studies & Coursework</label>
-                            <input className="modalFormEl" style={{height:'60px', width:'400px',}} type="text" name="desc" onChange={this.handleAddEdDescription}></input> <br />
-                            <button type="submit" onClick={this.handleAddEd}>Submit</button>
-                        </form>
-                        <button onClick={this.handleCloseModal}>Close</button>
+                        <div className="modalContent">
+                            <h3>Add Education</h3>
+                            <form>
+                                <label className="modalFormEl" htmlFor="school">School:</label>
+                                <input className="modalFormEl" type="text" name="school" onChange={this.handleAddEdSchool}></input>
+                                <label className="modalFormEl" htmlFor="study">Field of study: </label>
+                                <input className="modalFormEl" type="text" name="study" onChange={this.handleAddEdStudy}></input> <br />
+                                <label className="modalFormEl" htmlFor="location">Location:</label>
+                                <input className="modalFormEl" type="text" name="location" onChange={this.handleAddEdLocation}></input> <br />
+                                <label className="modalFormEl" htmlFor="start">Start Date:</label>
+                                <input className="modalFormEl" type="text" name="start" onChange={this.handleAddEdStart}></input>
+                                <label className="modalFormEl" htmlFor="end">End Date:</label>
+                                <input className="modalFormEl" type="text" name="end" onChange={this.handleAddEdEnd}></input> <br />
+                                <label className="modalFormEl" htmlFor="desc">Description of Studies & Coursework</label>
+                                <input className="modalFormEl" style={{height:'60px', width:'400px',}} type="text" name="desc" onChange={this.handleAddEdDescription}></input> <br />
+                                <button type="submit" onClick={this.handleAddEd}>Submit</button>
+                            </form>
+                        </div>
+                        <button className="closeModalBtn" onClick={this.handleCloseModal}>Close</button>
                 </ReactModal>
             </div>
         )

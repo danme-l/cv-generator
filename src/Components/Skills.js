@@ -15,6 +15,8 @@ class Skills extends React.Component {
         this.handleCloseModal = this.handleCloseModal.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleAddSkill = this.handleAddSkill.bind(this);
+        this.loadSample = this.loadSample.bind(this);
+        this.clear = this.clear.bind(this);
     }
 
     // opening and closing the modal
@@ -44,19 +46,38 @@ class Skills extends React.Component {
         });
     };
 
-    static getDerivedStateFromProps(props, state) {
-        return {
-            skills: props.skills,
-        }
-     }
+    loadSample() {
+        let sampleSkills = [
+            "HTML & CSS",
+            "JavaScript (ES5 & ES6)",
+            "React",
+            "Node.js",
+            "Python",
+            "Unicycling",
+            "Historical Trivia"
+        ]
+        this.setState({
+            skills: sampleSkills,
+        })
+    }
 
+    clear() {
+        this.setState({
+            skills: [],
+            newSkill: ''
+        })
+    }
     
     render() {
         return (
             <div className="editable">
                 <div id="skillsHead" className="cvSectionHead">
                     <h3>Skills</h3>
-                    <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
+                    <div className="buttonBox">
+                        <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
+                        <button className="editSectionBtn" onClick={this.loadSample}>Sample</button>
+                        <button className="editSectionBtn" onClick={this.clear}>Clear</button>
+                    </div>
                 </div>            
                 <ul>
                     {this.state.skills.map((skill, idx) => {
@@ -65,21 +86,24 @@ class Skills extends React.Component {
                 </ul>
                 <ReactModal
                     isOpen={this.state.showModal}
-                    contentLabel="Header Modal"
+                    contentLabel="Skills Modal"
                     ariaHideApp={false}
+                    className={"editModal"}
                     >
-                        <h3>Add Skills</h3>
-                        <ul>
-                            {this.state.skills.map((skill, idx) => {
-                                return <li key={idx}>{skill}</li>;
-                            })}
-                        </ul>
-                        <form>
-                            <label htmlFor="skill">New Skill:</label>
-                            <input type="text" name="skill" value={this.state.newSkill} onChange={this.handleChange}></input><br />
-                            <button type="submit" onClick={this.handleAddSkill}>Submit</button>
-                        </form>
-                        <button onClick={this.handleCloseModal}>Close</button>
+                        <div className="modalContent">
+                            <h3>Add Skills</h3>
+                            <ul>
+                                {this.state.skills.map((skill, idx) => {
+                                    return <li key={idx}>{skill}</li>;
+                                })}
+                            </ul>
+                            <form>
+                                <label htmlFor="skill">New Skill:</label>
+                                <input type="text" name="skill" value={this.state.newSkill} onChange={this.handleChange}></input><br />
+                                <button type="submit" onClick={this.handleAddSkill}>Submit</button>
+                            </form>
+                        </div>
+                        <button className="closeModalBtn" onClick={this.handleCloseModal}>Close</button>
                 </ReactModal>
             </div>
         );

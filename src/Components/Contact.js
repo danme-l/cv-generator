@@ -20,6 +20,8 @@ class Contact extends Component {
         this.handlePhoneChange = this.handlePhoneChange.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handleEdits =  this.handleEdits.bind(this);
+        this.loadSample = this.loadSample.bind(this);
+        this.clear = this.clear.bind(this);
     }
 
     handleOpenModal () {
@@ -50,18 +52,30 @@ class Contact extends Component {
         this.handleCloseModal();
     }
 
-    static getDerivedStateFromProps(props, state) {
-        return {
-            location: props.contact.location,
-            phone: props.contact.phone,
-            email: props.contact.email,
-        }
-     }
+    loadSample() {
+        this.setState({
+            location: "Toronto",
+            phone: '+1 (416) 123-4567',
+            email: "lorem@ipsum.com",
+        })
+    }
+
+    clear() {
+        this.setState({
+            location: "",
+            phone: "",
+            email: "",
+        })
+    }
 
     render() {
         return (
             <div id="contactSection" className="editable">
-                <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
+                    <div className="buttonBox">
+                        <button className="editSectionBtn" onClick={this.handleOpenModal}>Edit</button>
+                        <button className="editSectionBtn" onClick={this.loadSample}>Sample</button>
+                        <button className="editSectionBtn" onClick={this.clear}>Clear</button>
+                    </div>
                 <div className="contact-subsection">
                     <ImLocation size='33px' /> 
                     <p>{this.state.location}</p>
@@ -78,18 +92,21 @@ class Contact extends Component {
                     isOpen={this.state.showModal}
                     contentLabel="Contact Modal"
                     ariaHideApp={false}
+                    className={"editModal"}
                     >
-                        <h3>Name & Description</h3>
-                        <form>
-                            <label htmlFor="name">Location:</label>
-                            <input type="text" name="name" onChange={this.handleLocationChange}></input>
-                            <label htmlFor="desc">Phone:</label>
-                            <input type="text" name="desc" onChange={this.handlePhoneChange}></input>
-                            <label htmlFor="desc">email:</label>
-                            <input type="text" name="desc" onChange={this.handleEmailChange}></input>
-                            <button type="submit" onClick={this.handleEdits}>Submit</button>
-                        </form>
-                        <button onClick={this.handleCloseModal}>Close Test Modal</button>
+                        <div className="modalContent">
+                            <h3>Name & Description</h3>
+                            <form>
+                                <label  className="modalFormEl" htmlFor="name">Location:</label>
+                                <input  className="modalFormEl" type="text" name="name" onChange={this.handleLocationChange}></input>
+                                <label  className="modalFormEl" htmlFor="desc">Phone:</label>
+                                <input  className="modalFormEl" type="text" name="desc" onChange={this.handlePhoneChange}></input>
+                                <label  className="modalFormEl" htmlFor="desc">email:</label>
+                                <input  className="modalFormEl" type="text" name="desc" onChange={this.handleEmailChange}></input>
+                                <button type="submit" onClick={this.handleEdits}>Submit</button>
+                            </form>
+                        </div>
+                        <button className="closeModalBtn" onClick={this.handleCloseModal}>Close Test Modal</button>
                 </ReactModal>              
             </div>
         )

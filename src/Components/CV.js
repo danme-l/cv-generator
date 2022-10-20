@@ -17,14 +17,14 @@ class CV extends Component {
             imgAdr: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             contact: {
                 location: 'Toronto',
-                phone: '(613) 123-4567',
+                phone: '+1 (416) 123-4567',
                 email: 'sample@protonmail.com',
             },
             experience: [],
             education: [],
             skills: [],
         }
-        this.loadDonkey = this.loadDonkey.bind(this);
+        
         this.clear =  this.clear.bind(this);
         this.handleOpenModal = this.handleOpenModal.bind(this);
         this.handleCloseModal = this.handleCloseModal.bind(this);
@@ -47,8 +47,8 @@ class CV extends Component {
             imgAdr: "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
             contact: {
                 location: 'Toronto',
-                phone: '+1 (613) 878-0183',
-                email: 'd-dksa@protonmail.com',
+                phone: '+1 (416) 123-4567',
+                email: 'lorem@ipsum.com',
             },
             experience: [],
             education: [],
@@ -56,59 +56,7 @@ class CV extends Component {
         });
     }
 
-    loadDonkey() {
-        this.setState({
-            name: "A Donkey",
-            description: "I am a donkey",
-            imgAdr: "https://images.pexels.com/photos/598751/pexels-photo-598751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            contact: {
-                location: "Nepal-China Border Regions",
-                phone: "Neigh",
-                email: "donkey@everesttours.com"
-            },
-            experience: [
-                {
-                    title:"Chief Donkey",
-                    company: "Everest Tours",
-                    location: "Himalayas",
-                    start:"2018",
-                    end: "Current",
-                    description: "Lead Donkey on the team. Entrusted with the Sherpa's own possessions. Carried other valuables as needed"
-                },
-                {
-                    title:"Bag Carrier (Pony Intern)",
-                    company: "Everest Tours",
-                    location: "Himalayas",
-                    start:"2017",
-                    end: "2018",
-                    description: "Year long Donkey Internship at Nepal Donkey University. Carried bags for white westerners doing base camp treks for their instagram"
-                },
-            ],
-            education: [
-                {
-                    school: "Harvard University - Donkey College",
-                    study: "BA Donkey Studies",
-                    location: "Boston",
-                    start:"2012",
-                    end: "2016",
-                    description: "Major in Donkey Studies. Carried lots of bags"
-                },
-                {
-                    school: "Nepal Donkey University",
-                    study: "MA Donkey Studies",
-                    location: "Himalayas",
-                    start:"2016",
-                    end: "2018",
-                    description: "Masters degree in Donkey Studies. Finished with highest honours"
-                },
-            ],
-            skills: [
-                "Carrying Bags",
-                "Neighing",
-                "Biting Nasty Children"
-            ]
-        })
-    }
+    
 
     handleChange(e) {
         this.setState({
@@ -123,12 +71,7 @@ class CV extends Component {
 
     render() {
         return (
-            <main>
-                <div id="btn-box">
-                    <button className="top-btn" id="donkey-btn" onClick={this.loadDonkey} >Load The Donkey</button>
-                    <button className="top-btn" id="clear-btn" onClick={this.clear} >Clear</button>
-                </div>
-                
+            <main>                
                 <div id="cv-body">
                     <div id="cv-info">
                         <div id="img-box" className="editable">
@@ -157,14 +100,17 @@ class CV extends Component {
                 </div>
                 <ReactModal
                     isOpen={this.state.showModal}
-                    contentLabel="Test Modal"
+                    contentLabel="Change Photo"
+                    ariahideapp={false}
+                    id={"editPhotoModal"}
+                    className={"editModal"}
                     >
                         <form>
-                            <label htmlFor="imgurl">Img URL:</label>
-                            <input type="text" name="imgurl" onChange={this.handleChange}></input><br />
-                            <button type="submit" onClick={this.handleChangePicture}>Submit</button>
+                            <label className="modalFormEl" htmlFor="imgurl">Img URL:</label>
+                            <input className="modalFormEl" type="text" name="imgurl" onChange={this.handleChange}></input><br />
+                            <button className="modalFormEl" type="submit" onClick={this.handleChangePicture}>Submit</button>
                         </form>
-                        <button onClick={this.handleCloseModal}>Close Test Modal</button>
+                        <button className="closeModalBtn" onClick={this.handleCloseModal}>Close Test Modal</button>
                 </ReactModal>
             </main>
         )
